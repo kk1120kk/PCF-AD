@@ -47,7 +47,25 @@ python infer_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 ```
 python infer_AllowlistDecode_use_PPG_compare.py
 ```
-## 5 构建allowlist字典
+## 6 构建allowlist字典
+运行脚本获取每个单词在语音中的所有发音变体。
+```
+python Buckeye_get_word_phn_seq_DICT.py
+```
+会保存发音变体字典"Buckeye3_train_vocab_with_all_prons.txt"和"Buckeye3_test_vocab_with_all_prons.txt"，格式例如：
+```
+across | AH K R AA S | AH K R AO S | IH K R AO S | UH K R AA S
+act | AE K T | AE K
+acted | AE K T AH D | AE K T IH D
+acting | AE K T IH NG | AE K N
+action | AE K SH AH N | AE K SH IH M
+active | AE K T IH V
+```
+
+运行脚本来将TRIAN和TEST的发音变体字典构建为allowlist字典
+```
+python Buckeye_get_train_val_in_one_DICT.py
+```
 
 
 
