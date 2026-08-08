@@ -1,4 +1,19 @@
-# Paper-experiment-replication
+# PCF-AD: A Frame-level Phoneme Recognition Method Using Prior-guided Context Fusion and Allowlist Decoding on Self-Supervised Speech Representations
+## Abstract
+Frame‑level phoneme recognition, which produces phonetic posteriorgrams (PPGs), is a cornerstone of many speech applications. Despite the success of self‑supervised speech representations, models built on a single SSL backbone often exhibit unbalanced performance across different phoneme categories, and they struggle with confusable phonemes. Moreover, valuable linguistic priors such as word boundaries and pronunciation dictionaries are rarely exploited during decoding.To address these challenges, we propose PCF‑AD, a frame‑level phoneme recognition method that integrates Prior‑guided Context Fusion and Allowlist Decoding on self‑supervised representations. Specifically, three expert models (using Wav2Vec2, HuBERT, and WavLM features) independently produce PPGs, and a shallow Deep Feed‑forward Sequential Memory Network (DFSMN) dynamically fuses them by leveraging per‑phoneme validation accuracy as prior knowledge together with temporal context. A subsequent allowlist decoding strategy refines the fused PPG by using word‑level time alignments and a corpus‑derived allowlist dictionary: posterior probabilities of phonemes that belong to the current word are boosted, effectively injecting lexical constraints without requiring retraining.We evaluate PCF‑AD on the TIMIT and Buckeye benchmark datasets with four different acoustic backbones (DFSMN, BLSTM, TDNN, GateConv). Experimental results show that the proposed fusion strategy consistently outperforms single‑expert models and common fusion baselines, while the allowlist decoder delivers additional plug‑and‑play gains, especially for mel‑based systems. These results validate the effectiveness, robustness, and architectural generality of the proposed method.
+
+# PCF-AD: Official Implementation
+PCF-AD 一种用于帧级别音素分类的方法。包含两个贡献，
+
+C1：Prior-guided Context Fusion of the three SSL model outputs
+
+C2：Allowlist Decoding Strategy
+
+所提出的两个贡献，应用于BLSTM，GataConv，TDNN和DFSMN4种骨干网络，在Buckeye和TIMIT上的表现：
+
+![image](https://github.com/kk1120kk/PCF-AD/blob/main/resource/acc_in_Buckeye.jpg)
+![image](https://github.com/kk1120kk/PCF-AD/blob/main/resource/acc_in_TIMIT.jpg)
+
 ## 0 工程脚本描述
 使用的3个数据加载器
 ```
@@ -46,12 +61,12 @@ python infer_DFSMN_hubert_get_PPG.py
 python infer_DFSMN_wavlm_get_PPG.py
 ```
 ## 4 Train a fusion model for integrating PPGs
-在训练好分别使用w2v2,hubert和wavlm作为特征的三个DFSMN后，使用Prior-guided Context Fusion模型来融合三者的PPG
+在训练好分别使用w2v2,hubert和wavlm作为特征的三个DFSMN后，使用Prior-guided Context Fusion模型来融合三者的PPG，需要手动配置PPG的地址。
 ```
 python train_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 python infer_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 ```
-## 5 Inference with allowlist
+## 5 Inference with allowlist decoding
 在使用allowlist解码方法前需要保存好PPG，帧级词序列，并且构建好allowlist字典.
 需要配置test集的PPG路径，帧级词序列路径和allowlist字典的路径。
 我们给出了构建好的字典"Buckeye3_merged_train_val_dict.txt"，"TIMIT_TRAIN_VAL_merged_phn_dict.txt"
