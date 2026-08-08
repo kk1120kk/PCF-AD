@@ -51,6 +51,7 @@ python infer_AllowlistDecode_use_PPG_compare.py
 ## 6 构建allowlist字典
 运行脚本获取每个单词在语音中的所有发音变体。
 请确保"./Buckeye_Corpus" 路径下
+```
 Buckeye_Corpus
 ├── s01
 │   └── unzip
@@ -71,6 +72,7 @@ Buckeye_Corpus
 └── s40
     └── unzip
         └── *.words
+```
 ```
 python Buckeye_get_word_phn_seq_DICT.py
 ```
