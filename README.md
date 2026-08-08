@@ -41,8 +41,8 @@ python train_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 python infer_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 ```
 ## 5 Inference with allowlist
-在使用allowlist解码方法前需要保存好PPG，并且构建好allowlist字典.
-需要配置test集的PPG路径和allowlist字典的路径。
+在使用allowlist解码方法前需要保存好PPG，帧级词序列，并且构建好allowlist字典.
+需要配置test集的PPG路径，帧级词序列路径和allowlist字典的路径。
 我们给出了构建好的字典"Buckeye3_merged_train_val_dict.txt"，"TIMIT_TRAIN_VAL_merged_phn_dict.txt"
 运行脚本来使用allowlist解码方法精炼PPG，提高准确率
 ```
