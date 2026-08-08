@@ -31,21 +31,23 @@ expert_dataloader.py
 ### Download the processed data
 对于Buckeye和TIMIT数据集，提供了wavs,80fbnk特征,标签和帧级词序列：
 
-Buckeye_wavs:      [OneDrive link](); [BaiduNetDisk link]()
+帧级词序列用于allowlist decoding.
 
-Buckeye_80fbank:   [OneDrive link](); [BaiduNetDisk link]()
+Buckeye_wavs:      [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQAHHhhC45ElQIG1W-iqpE94AdU1r3yUTcpdtJabRQKX_A0?e=LM3xXG); [BaiduNetDisk link](https://pan.baidu.com/s/1CMYpdY6ljiUXBLModFobYQ?pwd=1120)
 
-Buckeye_label:     [OneDrive link](); [BaiduNetDisk link]()
+Buckeye_80fbank:   [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQBQHAuxTCyWT4blsJXlixo9AYLKGp6CxhUV-eLDSj1kjFc?e=VKwc2U); [BaiduNetDisk link](https://pan.baidu.com/s/1nu3l9w0eFU7o4vZ98b32-g?pwd=1120)
 
-Buckeye_word_seq:   [OneDrive link](); [BaiduNetDisk link]()
+Buckeye_label:     [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQD_AXTWKQ6GQLbx9ZzHoDgRARQoLoe3Yh7Q0xon-YGtn_g?e=XjlV7F); [BaiduNetDisk link](https://pan.baidu.com/s/1Yblovk0uWZuVWHibXc7JBw?pwd=1120)
 
-TIMIT_wavs:      [OneDrive link](); [BaiduNetDisk link]()
+Buckeye_word_seq:   [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQA_H_GG91vJQYtSkQyIEmZzAWFfIE8z38-VQECfQ5qzlgQ?e=Pf8SAU); [BaiduNetDisk link](https://pan.baidu.com/s/17mGPWLSOHQdXhghZsdX7-Q?pwd=1120)
 
-TIMIT_80fbank:   [OneDrive link](); [BaiduNetDisk link]()
+TIMIT_wavs:      [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQAkS5uj_JmCS7K0PK9bWxdiAalZJWRuy-_bRI_KivXzJ6U?e=HeudbH); [BaiduNetDisk link](https://pan.baidu.com/s/1VIwN0IN6aX0SsO_jnKgsZw?pwd=1120)
 
-TIMIT_label:     [OneDrive link](); [BaiduNetDisk link]()
+TIMIT_80fbank:   [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQCBn_cACto6TI3o6JXjjDAkAZzuRaYBzkqD9S1AoK4AhrQ?e=UIFDq6); [BaiduNetDisk link](https://pan.baidu.com/s/1J0s8IBYCkjsTgAAHPAO2pg?pwd=1120)
 
-TIMIT_word_seq:   [OneDrive link](); [BaiduNetDisk link]()
+TIMIT_label:     [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQD6w-iNbYo1Q5leFu2UYy4lAcvtAhLXs1DWWjzyY3vgoZ0?e=HPIGtC); [BaiduNetDisk link](https://pan.baidu.com/s/1BFaYr0la0Ji3XeOw0GTIyw?pwd=1120)
+
+TIMIT_word_seq:   [OneDrive link](https://1drv.ms/u/c/c358f1155eb8fb7f/IQC-l1MKkhXdT4O5OcGSjSBfAdf_473PqNwEa3lykveM6G0?e=HoWNFT); [BaiduNetDisk link](https://pan.baidu.com/s/1iwJ9UbN204InOYcxsK5_tw?pwd=1120)
 
 ### or Use scripts to process data by yourself
 
@@ -59,8 +61,12 @@ w2v2_get_feat_hidden_state.py
 HuBert_get_hidden_feat.py
 wavlm_get_hidden_feat.py
 ```
+对于Wav2Vec 2.0，我们使用第10层的输出作为特征， HuBERT和WavLM都提取第12层的输出作为特征。提取的特征的帧数与wav的帧数严格保持一致。
 ### Get 帧级词序列:
-./
+./get_Qwen3ASR_word_seq中, 使用这个脚本来获取帧级的词序列：
+```
+qwen3_get_WRD_ali2_use_label.py
+```
 
 
 
