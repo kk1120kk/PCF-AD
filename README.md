@@ -7,8 +7,10 @@ dataloader_whole_feat_hk_80fbank.py
 expert_dataloader.py
 ```
 "model_"开头的脚本定义了骨干模型
+
 "train_"开头的脚本定义了各种配方的训练
-"infer_"开头的脚本用于推理或者生成PPg
+
+"infer_"开头的脚本用于推理或者生成PPG
 ## 1 Prepare data
 ### Download the processed data
 
