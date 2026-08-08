@@ -35,9 +35,35 @@ python infer_DFSMN_hubert_get_PPG.py
 python infer_DFSMN_wavlm_get_PPG.py
 ```
 ## 4 Train a fusion model for integrating PPGs
-
-
+在训练好分别使用w2v2,hubert和wavlm作为特征的三个DFSMN后，使用Prior-guided Context Fusion模型来融合三者的PPG
+```
+python train_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
+python infer_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
+```
 ## 5 Inference with allowlist
+在使用allowlist解码方法前需要保存好PPG，并且构建好allowlist字典.
+需要配置test集的PPG路径和allowlist字典的路径。
+我们给出了构建好的字典""，""
+```
+python infer_AllowlistDecode_use_PPG_compare.py
+```
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 ## 
