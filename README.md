@@ -29,8 +29,40 @@ expert_dataloader.py
 "infer_"开头的脚本用于推理或者生成PPG
 ## 1 Prepare data
 ### Download the processed data
+对于Buckeye和TIMIT数据集，提供了wavs,80fbnk特征,标签和帧级词序列：
+
+Buckeye_wavs:      [OneDrive link](); [BaiduNetDisk link]()
+
+Buckeye_80fbank:   [OneDrive link](); [BaiduNetDisk link]()
+
+Buckeye_label:     [OneDrive link](); [BaiduNetDisk link]()
+
+Buckeye_word_seq:   [OneDrive link](); [BaiduNetDisk link]()
+
+TIMIT_wavs:      [OneDrive link](); [BaiduNetDisk link]()
+
+TIMIT_80fbank:   [OneDrive link](); [BaiduNetDisk link]()
+
+TIMIT_label:     [OneDrive link](); [BaiduNetDisk link]()
+
+TIMIT_word_seq:   [OneDrive link](); [BaiduNetDisk link]()
 
 ### or Use scripts to process data by yourself
+
+### Get Wav2Vec 2.0, HuBERT, WavLM features：
+
+首先部署这三个模型，参考[Wav2Vec 2.0](https://huggingface.co/facebook/wav2vec2-base-960h); [HuBERT](https://huggingface.co/facebook/hubert-base-ls960); [WavLM](https://huggingface.co/microsoft/wavlm-base)
+
+./get_SSL_feat中,使用这三个脚本从wavs中提取特征：
+```
+w2v2_get_feat_hidden_state.py
+HuBert_get_hidden_feat.py
+wavlm_get_hidden_feat.py
+```
+### Get 帧级词序列:
+./
+
+
 
 ## 2 Create conda env 
 ```
