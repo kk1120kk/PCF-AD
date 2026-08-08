@@ -44,11 +44,33 @@ python infer_3SSL_expert_dfsmn_Concat_ValPriorFeat_compare.py
 在使用allowlist解码方法前需要保存好PPG，并且构建好allowlist字典.
 需要配置test集的PPG路径和allowlist字典的路径。
 我们给出了构建好的字典"Buckeye3_merged_train_val_dict.txt"，"TIMIT_TRAIN_VAL_merged_phn_dict.txt"
+运行脚本来使用allowlist解码方法精炼PPG，提高准确率
 ```
 python infer_AllowlistDecode_use_PPG_compare.py
 ```
 ## 6 构建allowlist字典
 运行脚本获取每个单词在语音中的所有发音变体。
+请确保"./Buckeye_Corpus" 路径下
+Buckeye_Corpus
+├── s01
+│   └── unzip
+│       └── s0101a.words
+│       └── s0101b.words
+│       ...
+│       └── s0103a.words
+├── s02
+│   └── unzip
+│       └── *.words
+├── s03
+│   └── unzip
+│       └── *.words
+├── s04
+│   └── unzip
+│       └── *.words
+│   ...
+└── s40
+    └── unzip
+        └── *.words
 ```
 python Buckeye_get_word_phn_seq_DICT.py
 ```
