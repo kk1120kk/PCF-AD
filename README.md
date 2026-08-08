@@ -6,7 +6,7 @@ Frame‑level phoneme recognition, which produces phonetic posteriorgrams (PPGs)
 # PCF-AD: Official Implementation
 PCF-AD 一种用于帧级别音素分类的方法。包含两个贡献，
 
-C1：Prior-guided Context Fusion of the three SSL model outputs
+C1：Prior-guided Context Fusion of the three SSL sub-model outputs
 
 C2：Allowlist Decoding Strategy
 
