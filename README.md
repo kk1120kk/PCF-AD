@@ -27,7 +27,19 @@ expert_dataloader.py
 "train_"开头的脚本定义了各种配方的训练
 
 "infer_"开头的脚本用于推理或者生成PPG
-## 1 Prepare data
+
+## 1 Create conda env 
+```
+conda create -n ASR_phn python=3.10
+conda activate ASR_phn
+
+pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
+pip3 install transformers
+pip install librosa
+
+```
+
+## 2 Prepare data
 ### Download the processed data
 对于Buckeye和TIMIT数据集，提供了wavs,80fbnk特征,标签和帧级词序列：
 
@@ -68,18 +80,6 @@ wavlm_get_hidden_feat.py
 qwen3_get_WRD_ali2_use_label.py
 ```
 
-
-
-## 2 Create conda env 
-```
-conda create -n ASR_phn python=3.10
-conda activate ASR_phn
-
-pip3 install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu126
-pip3 install transformers
-pip install librosa
-
-```
 
 ## 3 Train a basic acoustic model to generate PPGs(Phonetic PosteriorGram)
 以DFSMN作为骨干网络,Buckeye数据集为例子。对于每个py脚本，以内置变量配置数据路径和模型参数等，需要根据具体的情况配置。
